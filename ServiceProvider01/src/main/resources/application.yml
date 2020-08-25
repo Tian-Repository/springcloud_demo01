@@ -1,0 +1,27 @@
+#配置服务提供者1服务器的端口号
+server:
+  port: 8081
+#配置数据库访问配置
+spring:
+#配置数据源
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/springboot-001?serverTimeZone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: "090057"
+    driver-class-name: com.mysql.jdbc.Driver
+  #配置jpa
+  jpa:
+    hibernate:
+    #如果访问的数据库不存在就创建该数据库，存在则更新
+      ddl-auto: update
+    #访问时在控制台输出sql语句，方便排错
+    show-sql: true
+  #服务提供者的应用名
+  application:
+    name: MyProvider
+#做Eureka客户端的配置
+eureka:
+  client:
+  #服务提供者地址，注册到Eureka服务器
+    service-url:
+      defaultZone: http://localhost:10086/eureka

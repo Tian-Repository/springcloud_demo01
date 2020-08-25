@@ -1,0 +1,33 @@
+#配置服务消费者4服务器的端口号
+server:
+  port: 9094
+spring:
+  thymeleaf:
+    cache: false
+  #服务提供者的应用名
+  application:
+    name: MyConsumer04
+#做Eureka客户端的配置
+eureka:
+  client:
+  #服务提供者地址，注册到Eureka服务器
+    service-url:
+      defaultZone: http://localhost:10086/eureka
+#配置日志
+logging:
+  level:
+  #扫描哪个包，此处是让扫描整个项目下的包
+    com.xxx:
+      debug
+#开启feign熔断器
+feign:
+  hystrix:
+    enabled: true
+#设定熔断器的熔断时间
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMillseconds: 2000

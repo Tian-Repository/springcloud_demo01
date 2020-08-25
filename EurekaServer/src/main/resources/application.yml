@@ -1,0 +1,16 @@
+#配置服务启动的端口号,随便起个10086
+server:
+  port: 10086
+#给应用起名，也就是给当前服务器起名
+spring:
+  application:
+    name: EurekaServer
+eureka:
+  client:
+  #register-with-Eureka 是否需要注册到其他的配置中心
+    register-with-eureka: false
+  #fetch-registry 是否需要从其他服务器拉取服务列表
+    fetch-registry: false
+  #service-url当前注册中心的地址,注册到服务器，注册地址后必须加/eureka
+    service-url:
+      defaultZone: http://localhost:10087/eureka

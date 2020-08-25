@@ -1,0 +1,12 @@
+#配置服务启动的端口号,随便起个10087
+server:
+  port: 10087
+#给应用起名，也就是给当前服务器起名
+spring:
+  application:
+    name: EurekaServer
+eureka:
+  client:
+  #service-url当前注册中心的地址,注册到服务器，注册地址后必须加/eureka
+    service-url:
+      defaultZone: http://localhost:10086/eureka

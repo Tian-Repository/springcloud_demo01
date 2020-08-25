@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: hystix_dashboard
+server:
+  port: 7071

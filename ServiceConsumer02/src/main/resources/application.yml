@@ -1,0 +1,15 @@
+#配置服务消费者2服务器的端口号
+server:
+  port: 9092
+spring:
+  thymeleaf:
+    cache: false
+  #服务提供者的应用名
+  application:
+    name: MyConsumer02
+#做Eureka客户端的配置
+eureka:
+  client:
+  #服务提供者地址，注册到Eureka服务器
+    service-url:
+      defaultZone: http://localhost:10086/eureka

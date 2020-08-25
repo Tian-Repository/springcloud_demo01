@@ -1,0 +1,38 @@
+#配置服务消费者3服务器的端口号
+server:
+  port: 9093
+spring:
+  thymeleaf:
+    cache: false
+  #服务提供者的应用名
+  application:
+    name: MyConsumer03
+#做Eureka客户端的配置
+eureka:
+  client:
+  #服务提供者地址，注册到Eureka服务器
+    service-url:
+      defaultZone: http://localhost:10086/eureka
+#配置Ribbon，以服务名开头，我的叫MyProvider
+MyProvider:
+  ribbon:
+    #负载均衡-轮询
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
+    #Ribbon的连接时间,毫秒
+    ConnectTimeout: 300
+    #Ribbon的数据读取时间
+    ReadTimeout: 300
+    #是否对所有操作都启用重试机制
+    OKToRetryOnAllOperations: true
+    #切换实例的最大次数，也就是切换服务提供者的最多次数
+    MaxAutoRetriesNextServer: 1
+    #指定在当前实例上重试的次数,比如在8081提供者上试了1次不行，再最多对8081重试1次
+    MaxAutoRetries: 1
+#配置Hystrix熔断时间,默认1000
+hysteix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMillisecond: 2000
