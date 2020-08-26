@@ -30,7 +30,7 @@ public class UserController {
         //此处让线程睡眠。帮助Consumer03模拟网络阻塞，展示熔断机制
         try {
         //熔断器默认熔断时间为1000毫秒，超过1000他会认为你这个服务出了问题，熔断此处，降级处理
-            int i = new Random().nextInt(1200);//随机睡眠时间
+            int i = new Random().nextInt(100);//随机睡眠时间
             System.out.println("Provider01睡眠时间"+i);
             Thread.sleep(i);
         } catch (InterruptedException e) {

@@ -9,6 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>com.xxx</groupId>
+    <artifactId>ServiceConsumer04</artifactId>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -55,22 +58,20 @@
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
 
-        <!-- 增加熔断器监控服务器的依赖 -->
+        <!-- 增加熔断器监控服务器端到端的流的依赖 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
+        <!-- 熔断器依赖 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
-            <version>2.1.6.RELEASE</version>
         </dependency>
+
+
+
     </dependencies>
-
-    <groupId>com.xxx</groupId>
-    <artifactId>ServiceConsumer04</artifactId>
-
-
 
 </project>

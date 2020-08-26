@@ -11,6 +11,8 @@
         <module>ServiceConsumer02</module>
         <module>ServiceConsumer03</module>
         <module>ServiceConsumer04</module>
+        <module>hystrix_dashboard</module>
+        <module>Hystrix_DashBoard</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
