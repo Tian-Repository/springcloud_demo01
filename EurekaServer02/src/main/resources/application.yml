@@ -9,4 +9,4 @@ eureka:
   client:
   #service-url当前注册中心的地址,注册到服务器，注册地址后必须加/eureka
     service-url:
-      defaultZone: http://localhost:10086/eureka
+      defaultZone: http://localhost:10086/eureka,http://localhost:10087/eureka

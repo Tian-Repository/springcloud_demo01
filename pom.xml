@@ -13,6 +13,8 @@
         <module>ServiceConsumer04</module>
         <module>hystrix_dashboard</module>
         <module>Hystrix_DashBoard</module>
+        <module>ConfigServer01</module>
+        <module>ConfigerServer02</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

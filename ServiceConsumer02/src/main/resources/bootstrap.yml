@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: ServiceConsumer02
+  cloud:
+    config:
+      #就是配置文件中"-"后边的字符串，也就是代表开发、测试、生产的那些后缀，也就是去找ServiceProvider01-dev.xml
+      profile: dev
+      #指定在github仓库的哪个分支，此处给的是主分支
+      label: master
+      #集中配置中心的地址
+      uri: http://127.0.0.1:6061

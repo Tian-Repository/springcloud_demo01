@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: ConfigServer01
+  cloud:
+    config:
+      server:
+        git:
+          #添加github上自己创建的配置仓库的地址，记得去掉地址后边的。git增加/
+          uri: https://github.com/Tian-Repository/SpringCloud-ConfigServer/
+          #指定在远程仓库的哪个文件夹下寻找配置文件
+          search-paths: MyConfig/config-repo
+          #提供自己github的用户名密码
+          username: Tian-Repository
+          password: HelloWorld225
+server:
+  port: 6061
+#做Eureka客户端的配置
+eureka:
+  client:
+    #服务提供者地址，注册到Eureka服务器
+    service-url:
+      defaultZone: http://localhost:10086/eureka,http://localhost:10087/eureka

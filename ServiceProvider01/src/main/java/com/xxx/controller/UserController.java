@@ -3,6 +3,8 @@ package com.xxx.controller;
 import com.xxx.pojo.Usr;
 import com.xxx.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -10,13 +12,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-
+@RefreshScope
 @RestController
 @RequestMapping("/user")//映射给到类上更规范，不易出错，如：用swagger2不给就容易出问题
 public class UserController {
     @Autowired
     UserService userService;
 
+    @Value("${ProviderVersion}")
+    String ProviderVersion;
     //获取全部用户信息
     @GetMapping("/getAll")
     public Map<String,Object> getUsers(){
@@ -24,7 +28,7 @@ public class UserController {
         List<Usr> userList = userService.getUserList();
         map.put("list",userList);
         //用于标识服务
-        String ProviderVersion="MyProvider001:0.01V";
+        //String ProviderVersion="MyProvider001:0.01V";
         map.put("ProviderVersion",ProviderVersion);
 
         //此处让线程睡眠。帮助Consumer03模拟网络阻塞，展示熔断机制
